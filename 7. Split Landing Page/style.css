@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --left-bg: rgba(87, 84, 236, 0.5);
+  --right-bg: rgba(43, 43, 43, 0.5);
+  --left-btn: rgba(87, 84, 236, 1);
+  --right-btn: rgba(28, 122, 28, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: #333;
+}
+
+.container.hover-left .left {
+  width: 75%;
+  z-index: 1;
+}
+
+.container.hover-left .right {
+  width: 25%;
+}
+
+.container.hover-right .right {
+  width: 75%;
+  z-index: 1;
+}
+
+.container.hover-right .left {
+  width: 25%;
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+}
+
+.split h1 {
+  position: absolute;
+  font-size: 3rem;
+  color: #fff;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.split .btn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-decoration: none;
+  color: #fff;
+  border: #fff solid 0.2rem;
+  width: 15rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5rem;
+}
+
+.split.left .btn:hover {
+  background-color: var(--left-btn);
+  border-color: var(--left-btn);
+}
+
+.split.right .btn:hover {
+  background-color: var(--right-btn);
+  border-color: var(--right-btn);
+}
+
+.split.left {
+  left: 0;
+  background: url(./ps.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.left::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--left-bg);
+}
+
+.split.right {
+  right: 0;
+  background: url(./xbox.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.right::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--right-bg);
+}
+
+.left,
+.right,
+.left::before,
+.right::before {
+  transition: all 0.5s linear;
+}
